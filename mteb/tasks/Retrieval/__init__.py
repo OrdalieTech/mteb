@@ -39,3 +39,4 @@ from .SciFactPLRetrieval import *
 from .TRECCOVIDPLRetrieval import *
 from .NarrativeQARetrieval import *
 #from .MSMARCOFRRetrieval import *
+from .OrdalieLegalRetrieval import *
