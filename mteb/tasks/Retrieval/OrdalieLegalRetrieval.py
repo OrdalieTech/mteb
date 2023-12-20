@@ -43,3 +43,26 @@ class OrdalieLegalRetrieval(AbsTaskRetrieval):
                                                                             self.description['eval_splits'])
         self.data_loaded = True
 
+class OrdalieLegalRetrieval2(AbsTaskRetrieval):
+    @property
+    def description(self):
+        return {
+            'name': 'OrdalieLegalRetrieval2',
+            'hf_hub_name': 'OrdalieTech/Legal-retrieval-benchmark-02',
+            'reference': 'https://ordalie.ai',
+            'description': 'Ordalie Legal Retrieval Benchmark 2',
+            'type': 'Retrieval',
+            'category': 's2p',
+            'eval_splits': ['test'],
+            'eval_langs': ['fr'],
+            'main_score': 'ndcg_at_10',
+        }
+
+    def load_data(self, **kwargs):
+        if self.data_loaded:
+            return
+
+        self.corpus, self.queries, self.relevant_docs = load_retrieval_data(self.description['hf_hub_name'],
+                                                                            self.description['eval_splits'])
+        self.data_loaded = True
+

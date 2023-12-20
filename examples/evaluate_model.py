@@ -18,7 +18,7 @@ model.encode_queries = encode_queries.__get__(model)
 model.encode_corpus = encode_corpus.__get__(model)
 
 # Run evaluation
-evaluation = MTEB(task_langs=["fr"], tasks=["OrdalieLegalReranking"])
+evaluation = MTEB(task_langs=["fr"], tasks=["OrdalieLegalRetrieval"])
 evaluation.run(model, output_folder=f"results/{model_name}", eval_splits=["test"], verbosity=2)
 
 print("--DONE--")
